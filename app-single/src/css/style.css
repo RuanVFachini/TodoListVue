@@ -1,0 +1,279 @@
+body {
+    width: 100%;
+    padding: 0px;
+    margin: 0px auto;
+    background-color: azure;
+    padding-top: 100px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16pt;
+    color: #969fff;
+}
+
+div#app{
+    padding: 0px;
+    width: 100%;
+}
+
+section.app{
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #e2e2ff;
+    width: 440px;
+    border: 0.5px solid thistle;
+}
+
+header.header{
+    height: 40px;
+}
+
+input.new-todo{
+    float: left;
+    border-radius: 5px;
+    width: 300px;
+    height: 30px;
+    padding: 0px;
+    color: black;
+    border: 2px solid gray;
+    padding-left: 10px;
+    font-size: 16px;
+    background-color: unset;
+}
+
+li.todo input.edit{
+    display: none;
+}
+
+li.todo.editing input.edit{
+    display: initial;
+}
+
+button.new-todo-button{
+    float: right;
+    width: 90px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    height: 32px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10pt;   
+}
+
+div.completed-wrapper{
+    width: 100%;
+    height: 60px;
+    vertical-align: middle;
+}
+
+div.completed-wrapper button{
+    background-color: unset;
+    background-image: url(../img/remove.png);
+    background-size: cover;
+    padding: 0px;
+    border: none;
+    position: relative;
+    top: 8px;
+    float: right;
+    height: 40px;
+    width: 40px;
+}
+
+ul.todo-list{
+    padding: 0px;
+}
+
+#scroll-body{
+    position: relative;
+    left: -10.5px;
+    width: 100%;
+    padding: 0px 10px 0px 10px;
+    height: 300px;
+    overflow:auto;
+    /* border: 1px solid gray; */
+    background-color: #e2e2ff;
+    border: 0.5px solid thistle;
+}
+
+input.hide{
+    float: left;
+    display: none;
+}
+
+div label.toggle-label{
+    float: left;
+    width: 200px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    height: 50px;
+    padding: 8px 5px;
+}
+
+li.todo button.check{
+    background-color: unset;
+    background-image: url(../img/unchecked.png);
+    background-size: cover;
+    background-size: auto;
+    background-repeat: no-repeat;
+    padding: 0px;
+    border: none;
+    background-position-y: 5px;
+    float: left;
+    height: 46px;
+    width: 32px;
+}
+
+li.todo.completed button.check{
+    background-color: unset;
+    background-image: url(../img/checked.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position-y: 5px;
+    padding: 0px;
+    border: none;
+    float: left;
+    height: 46px;
+    width: 32px;
+}
+
+input.toggle-all:checked + label.toggle-label::before{
+    position: relative;
+    top: 8px;
+    content: url(../img/checked.png);
+    margin-right: 10px;
+    padding: 0px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+section ul li.todo{
+    height: 100%;
+}
+
+div.view{
+    height: 60px;
+}
+
+div.view label{
+    width: 300px;
+    height: 30px;
+}
+
+section ul.todo-list li input{
+    position: relative;
+    margin-left: 30px;
+    height: 24px;
+    background-color: #eeeeee;
+    border: 2px solid gray;
+    border-radius: 5px;
+    width: 360px;
+}
+
+label.toggle-label:hover{
+    cursor: pointer;
+}
+
+button.destroy{
+    background-color: unset;
+    background-image: url(../img/remove.png);
+    background-size: cover;
+    padding: 0px;
+    border: none;
+    float: right;
+    height: 40px;
+    width: 40px;
+}
+
+footer.footer{
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+footer ul.filters{
+    padding-left: 0px;
+}
+
+footer ul.filters li {
+    display: inline;
+}
+
+footer ul.filters li a{
+    text-decoration: none;
+    color: #969fff;
+}
+
+footer ul.filters li a:hover{
+    text-decoration: none;
+    color: royalblue;
+    border-bottom: 2px solid royalblue;
+}
+
+@media screen and (min-width: 375px) and (max-width: 475px){
+    body{
+        padding-top: 30px;
+        font-size: 10px;
+    }
+
+    section.app{
+        font-size: 10px;
+        width: auto
+    }
+
+    input.new-todo{
+        font-size: 14px;
+        width: 230px;
+    }
+
+    button.new-todo-button{
+        width: 90px;
+        font-size: 10pt;   
+    }
+
+    div.view label{
+        width: 280px;
+    }
+
+    section ul.todo-list li input{
+        width: 240px;
+    }
+}
+
+@media screen and (max-width: 375px){
+
+    html{
+        min-width: 300px;;
+    }
+
+    body{
+        padding-top: 30px;
+        font-size: 10px;
+    }
+
+    section.app{
+        font-size: 10px;
+        width: auto
+    }
+
+    input.new-todo{
+        font-size: 10px;
+        width: 170px;
+    }
+
+    button.new-todo-button{
+        width: 90px;
+        font-size: 10pt;   
+    }
+
+    div.view label{
+        width: 150px;
+    }
+
+    section ul.todo-list li input{
+        width: 150px;
+    }
+}

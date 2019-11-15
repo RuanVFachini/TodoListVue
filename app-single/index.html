@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./src/css/style.css" />
+  <link rel="stylesheet" href="./src/css/reset.css" />
+  <title>Todo List</title>
+</head>
+
+<body>
+  <div id="app">
+    <section class="app">
+      <header class="header">
+        <input class="new-todo" autocomplete="off" placeholder="Adicione aqui" v-model="newTodo"
+          @keyup.enter="addTodo" />
+        <button class="new-todo-button" @click="addTodo" v-show="newTodo.length > 0">Adicionar</button>
+      </header>
+      <section class="main" v-show="todos.length" v-cloak>
+        <div class="completed-wrapper">
+          <input id="toggle-all" class="toggle-all hide" type="checkbox" v-model="allDone">
+          <label class="toggle-label" for="toggle-all">Finalizar todas</label>
+          <button class="clear-completed" @click="removeCompleted">
+          </button>
+        </div>
+        <div id="scroll-body">
+          <ul class="todo-list">
+            <li v-for="todo in filteredTodos" class="todo" :key="todo.id"
+              :class="{ completed: todo.completed, editing: todo == editedTodo }">
+              <div class="view">
+                <input class="toggle hide" type="checkbox" v-model="todo.completed">
+                <button class="check" @click="completeTodo(todo)"></button>
+                <label class="toggle-label"
+                  @dblclick="editTodo(todo)">{{ todo.title }}</label>
+                <button class="destroy" @click="removeTodo(todo)"></button>
+              </div>
+              <input class="edit" type="text" v-model="todo.title" v-todo-focus="todo == editedTodo"
+                @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)" @keyup.esc="cancelEdit(todo)">
+            </li>
+          </ul>
+        </div>
+      </section>
+      <footer class="footer" v-show="todos.length" v-cloak>
+        <span class="todo-count">
+          <strong>{{ remaining }}</strong> tarefa(s) restante(s)
+        </span>
+        <ul class="filters">
+          <li><a href="#/all" :class="{ selected: visibility == 'all' }">Todas</a></li>
+          <li><a href="#/active" :class="{ selected: visibility == 'active' }">Incompletas</a></li>
+          <li><a href="#/completed" :class="{ selected: visibility == 'completed' }">Completas</a></li>
+        </ul>
+      </footer>
+    </section>
+  </div>
+
+  <script type="text/javascript" src="/src/js/vue.js"></script>
+  <script type="text/javascript" src="/src/js/app.js"></script>
+  
+</body>
+
+</html>
